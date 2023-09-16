@@ -85,9 +85,6 @@ body {
 .main .cards .card__icons .icon--follow {
   color: #ff0000;
 }
-.main .cards .card__icons .icon:hover {
-  color: #8d8b8b;
-}
 .main .cards .card__icons .icon:first-child {
   margin-left: 0;
 }
