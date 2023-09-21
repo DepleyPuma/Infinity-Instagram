@@ -1,21 +1,23 @@
-// co ptorzeba
-/*
-przycisk *
-ikonkę serduszka *
-spana z liczbą polubień *
-zdjęcie aby móc dodawac nowe zdjęcia (tworzenie nowego atrybutu)
-trzeba tworzyć kartę
-*/
-
-// nie działa napisywanie zmiennej hearts (po stworzeniu nowej karty ikonka serduszka się nie dodaje)
-// pomysł na rozwiązanie problemu pushowanie nowostworzonego elementu do tablicy (nie działa)
-
 const cardsSection = document.querySelector('.cards');
 const loadBtn = document.querySelector('.load-btn');
 const hearts = document.querySelectorAll('.fa-heart');
 const heartIconsArray = Array.from(hearts);
 
 const URL = 'https://dog.ceo/api/breeds/image/random';
+
+const chcekFollow = heart => {
+	console.log(heart);
+	console.log(heartIconsArray);
+	if (heart.classList.contains('fa-regular')) {
+		heart.classList.remove('fa-regular');
+		heart.classList.add('fa-solid');
+		heart.classList.add('icon--follow');
+	} else {
+		heart.classList.remove('fa-solid');
+		heart.classList.remove('icon--follow');
+		heart.classList.add('fa-regular');
+	}
+};
 
 const createUserInfo = () => {
 	const cardUserInfoSection = document.createElement('div');
@@ -63,6 +65,10 @@ const createIcons = () => {
 	heartIcon.classList.add('fa-regular', 'fa-heart', 'icon');
 	commentIcon.classList.add('fa-regular', 'fa-comment', 'icon');
 	sentIcon.classList.add('fa-regular', 'fa-paper-plane', 'icon');
+
+	heartIcon.addEventListener('click', () => {
+		chcekFollow(heartIcon);
+	});
 
 	heartIconsArray.push(heartIcon); // Dodawanie do tablicy
 	cardIcons.append(heartIcon, commentIcon, sentIcon);
@@ -116,22 +122,8 @@ const createCard = () => {
 
 		cardsSection.append(card);
 	}
-
-	heartIconsArray.forEach(heart => {
-		heart.addEventListener('click', () => {
-			console.log(heart);
-			console.log(heartIconsArray);
-			if (heart.classList.contains('fa-regular')) {
-				heart.classList.remove('fa-regular');
-				heart.classList.add('fa-solid');
-				heart.classList.add('icon--follow');
-			} else {
-				heart.classList.remove('fa-solid');
-				heart.classList.remove('icon--follow');
-				heart.classList.add('fa-regular');
-			}
-		});
-	});
 };
+
+createCard();
 
 loadBtn.addEventListener('click', createCard);
