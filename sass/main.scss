@@ -82,6 +82,7 @@ body {
 					height: 100%;
 					background-position: center;
 					background-size: cover;
+					cursor: pointer;
 				}
 			}
 
@@ -97,12 +98,16 @@ body {
 					}
 				}
 
-				// .icon:hover {
-				// 	color: #8d8b8b;
-				// }
+				.icon:hover {
+					color: #8d8b8b;
+				}
 
 				.icon:first-child {
 					margin-left: 0;
+				}
+
+				.icon:first-child:hover {
+					color: colors.$heart-color;
 				}
 			}
 

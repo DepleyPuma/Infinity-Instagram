@@ -76,6 +76,7 @@ body {
   height: 100%;
   background-position: center;
   background-size: cover;
+  cursor: pointer;
 }
 .main .cards .card__icons .icon {
   margin-left: 1em;
@@ -86,8 +87,14 @@ body {
 .main .cards .card__icons .icon--follow {
   color: #ff0000;
 }
+.main .cards .card__icons .icon:hover {
+  color: #8d8b8b;
+}
 .main .cards .card__icons .icon:first-child {
   margin-left: 0;
+}
+.main .cards .card__icons .icon:first-child:hover {
+  color: #ff0000;
 }
 .main .cards .card__stats {
   margin-top: 1em;
