@@ -50,6 +50,10 @@ const createCardPhoto = () => {
 
 	cardPhoto.setAttribute('alt', 'photo');
 
+	cardPhoto.addEventListener('dblclick', () => {
+		chcekFollow(cardPhotoSection.nextElementSibling.firstElementChild);
+	})
+
 	cardPhotoSection.append(cardPhoto);
 
 	return cardPhotoSection;
